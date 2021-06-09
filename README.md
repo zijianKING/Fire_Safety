@@ -1,2 +1,6 @@
 # Fire_Safety
-Source code for the interface that displays hazard icons and strategies for the Fire Safety Project of FASE MIE DORL-Undergrad in University of Toronto
+# openFile
+- run the code to start the application
+- click on "file" then "oepn file"
+- select "test.txt" to display strategies in that *.txt file
+- source: https://pythonprogramming.net/open-files-pyqt-tutorial/
