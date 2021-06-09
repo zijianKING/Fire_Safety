@@ -1,5 +1,5 @@
 # Fire_Safety
-# openFile
+## openFile
 - run the code to start the application
 - click on "file" then "oepn file"
 - select "test.txt" to display strategies in that *.txt file
