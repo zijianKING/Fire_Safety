@@ -1,7 +1,7 @@
 # :fire_engine:fireSafety
 Source code for the interface that displays hazard icons and strategies for the Fire Safety Project of FASE MIE DORL-Undergrad in University of Toronto :smiley:
 
-# :octocat:Branches
+# :octocat: Branches
 1. :open_file_folder:[openFile] (https://github.com/CathyF9600/Fire_Safety/tree/openFile)
 
 # :round_pushpin:To-do
