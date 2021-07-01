@@ -6,3 +6,4 @@ Source code for the interface that displays hazard icons and strategies for the 
 
 # :round_pushpin:To-do
 1. Compile a folder of *.txt file. Each contains a strategy guide with key words as file names.
+2. Develop a software interface with the goal set up in the figma prototype
