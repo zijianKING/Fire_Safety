@@ -17,6 +17,8 @@ public:
 
 //private:
     Ui::SecDialog *ui;
+private slots:
+    void on_pushButton_clicked();
 };
 
 #endif // SECDIALOG_H

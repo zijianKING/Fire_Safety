@@ -26,7 +26,7 @@ void MainWindow::on_pushButton_clicked()
 {
     QString fileName;
     fileName = QFileDialog::getOpenFileName(this,
-    tr("Open Text file"), "", tr("Text Files (*.txt)")); //this:指针指向窗口对象
+    tr("Open Text file"), "", tr("All Files (*)")); //this:指针指向窗口对象
 
     if(!fileName.isNull())
     {
@@ -60,7 +60,7 @@ void MainWindow::on_pushButton_clicked()
     QPixmap pm("C:\\Users\\zijia\\Downloads\\Fire_Safety-cpp_ui\\explosive.png");
 //    secDialog = new SecDialog(this);
 //    secDialog->setModal(false);
-    secDialog->ui->label->setPixmap(pm.scaled(100,100,Qt::KeepAspectRatio));
+    secDialog->ui->label->setPixmap(pm);
     secDialog->ui->label->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
