@@ -5,8 +5,18 @@ from datetime import datetime
 
 
 # load data
-df = pd.read_csv('2020 heating the new PTFE line preliminary.csv')
-data = df.iloc[:, 2:]
+read_file = pd.read_table(r'2020 heating the new PTFE line preliminary.prn')
+
+idx = read_file.loc[read_file['CO2 ppm 191c'] > 400].index[0]
+
+result = read_file.loc[read_file.index[idx:]]
+
+#result.to_csv(r'2020 heating the new PTFE line preliminary.csv', index=None)
+#df = pd.read_csv('2020 heating the new PTFE line preliminary.csv')
+
+data = result.iloc[:,2:]
+
+data = data.drop('Unnamed: 46',axis=1)
 
 # Convert data & Filtering
 length = len(data.loc[:, 'Time'])
@@ -14,9 +24,13 @@ time = np.arange(length) * 4
 data.loc[:, 'Time'] = time
 data = data.set_index('Time')
 
-chemical = data['Acetylene (1000) 191C']
-chemical[chemical < 0] = 0
+for col in data.columns:
+  chemical = data[col]
+  chemical[chemical < 0] = 0
+  ax = chemical.plot()
+  ax.set_title("PPM Plot for " + col)
+  ax.set_ylabel("PPM")
+  fig = ax.get_figure()
+  fig.savefig(col + ' figure.jpg')
+  fig.clear()
 
-ax = chemical.plot()
-fig = ax.get_figure()
-fig.savefig('figure.jpg')
