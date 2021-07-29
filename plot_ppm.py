@@ -34,3 +34,7 @@ for col in data.columns:
   fig.savefig(col + ' figure.jpg')
   fig.clear()
 
+with open('chemicals.txt','w') as f:
+  for col in data.columns:
+    f.write(col)
+    f.write('\n')
