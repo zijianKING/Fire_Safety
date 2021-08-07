@@ -1,5 +1,6 @@
 # :fire_engine:fireSafety
-Source code for the interface that displays hazard icons and strategies for the Fire Safety Project of FASE MIE DORL-Undergrad in University of Toronto :smiley:
+Fire Safety Project of FASE MIE DORL-Undergrad in University of Toronto:
+Source code for the interface that displays hazard icons and strategies :smiley:
 
 # :octocat:Branches
 1. QtCreator_0725: actively developped version
