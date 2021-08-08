@@ -12,7 +12,7 @@ from sklearn import metrics
 from sklearn.pipeline import Pipeline
 from sktime.utils.data_io import load_from_tsfile_to_dataframe
 from sktime.transformations.panel.compose import ColumnConcatenator
-from sktime.classification.interval_based import TimeSeriesForestClassifier
+# from sktime.classification.interval_based import TimeSeriesForestClassifier
 import dataframe_image as dfi
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
@@ -126,10 +126,10 @@ def predict_rocket(input, directory):
   for hazard in hazard_categories:
       print("hazard category: ", hazard)
       X_train, y_train = load_from_tsfile_to_dataframe(
-                                                        'ts_' + hazard + '_train.txt')
+                                                        '../ts_NRC_dataset/ts_' + hazard + '_train.txt')
 
       X_test, y_test = load_from_tsfile_to_dataframe(
-                                                        'ts_' +hazard + '_test.txt')
+                                                        '../ts_NRC_dataset/ts_' +hazard + '_test.txt')
 
       #ROCKET
       rocket = Rocket()
