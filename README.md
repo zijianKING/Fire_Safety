@@ -16,4 +16,4 @@ https://github.com/CathyF9600/Fire_Safety
 4. plot: code that creates chemical ppm plot
 
 ## :round_pushpin:To-do
-1. second dialog resize
+1. second dialog minimize
