@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib as plt
-from datetime import datetime
+# from datetime import datetimepip
 import numpy as np
 import pandas as pd
 import os
@@ -151,8 +151,9 @@ def predict_rocket(input, directory):
       input_transform = rocket.transform(test_data)
 
       #to make predictions, use the following line:
+      input_transform.replace([np.inf, -np.inf], np.nan, inplace=True) # 1st attempt to get rid of the NaN error
       predictions[hazard] = classifier.predict(input_transform)
-
+      input_transform = input_transform.reset_index() # 2nd attempt to get rid of the NaN error
   return predictions
 
 test_data_realtime = "ts_real_time_prediction2020 heating the new PTFE line preliminary.txt"

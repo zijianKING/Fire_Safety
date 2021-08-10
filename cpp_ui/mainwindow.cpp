@@ -74,7 +74,10 @@ void MainWindow::on_pushButton_clicked()
     secDialog->ui->label->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
-
+    QPixmap pm2("../../scripts/dataframe.png");
+    secDialog->ui->label_5->setPixmap(pm2);
+    secDialog->ui->label_5->setScaledContents(true);
+    QApplication::restoreOverrideCursor();
 
     //secDialog->show();
     //this->hide();
