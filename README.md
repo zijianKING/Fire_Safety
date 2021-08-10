@@ -17,3 +17,4 @@ https://github.com/CathyF9600/Fire_Safety
 
 ## :round_pushpin:To-do
 1. second dialog minimize
+2. run python in Qt
