@@ -23,4 +23,4 @@ https://github.com/CathyF9600/Fire_Safety
 ## Release Note
 1. download all dependencies in requirements.txt
 2. sktime currently supports environments with python version 3.6, 3.7, or 3.8
-3. PredictionModel/Prediction.py is written on PyCharm 2021. Running in VS Code might require change in the format of relative path. For example, `data.to_csv(r'2020 heating the new PTFE line preliminary.csv', index=None)` works on PyCharm while `read_file = pd.read_table(r'PredictionModel/2020 heating the new PTFE line preliminary.prn')` works on VS Code
+3. PredictionModel/Prediction.py is written on PyCharm 2021. Running on VS Code might require change in the format of relative path. For example, `data.to_csv(r'2020 heating the new PTFE line preliminary.csv', index=None)` works on PyCharm while `read_file = pd.read_table(r'PredictionModel/2020 heating the new PTFE line preliminary.prn')` works on VS Code
