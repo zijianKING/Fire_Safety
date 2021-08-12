@@ -7,6 +7,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QTextEdit>
+#include <QProcess>
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
@@ -112,7 +113,15 @@ void SecDialog::on_pushButton_clicked()
 void SecDialog::on_pushButton_2_clicked()
 {
     //click button模拟了run python file的行动
-    QPixmap pm("../../PredictionModel/predictionResult.png");
+    QString path = "../../PredictionModel";
+    QString command("python");
+    QStringList params = QStringList() << "test.py";
+    QProcess *p = new QProcess();
+    p->startDetached(command, params, path);
+    p->waitForFinished();
+    p->close();
+
+    QPixmap pm("../../PredictionModel/test.png");
     ui->label_4->setPixmap(pm);
     ui->label_4->setScaledContents(true);
     QApplication::restoreOverrideCursor();
