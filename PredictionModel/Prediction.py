@@ -15,11 +15,14 @@ from sktime.transformations.panel.compose import ColumnConcatenator
 # from sktime.classification.interval_based import TimeSeriesForestClassifier
 import dataframe_image as dfi
 from sklearn.preprocessing import OneHotEncoder
-import pandas as pd
-import numpy as np
 from sklearn.model_selection import train_test_split, KFold
 import os
+import pickle
+import sys
+import random
+random.seed(10)
 
+sys.stdout.write("hi\n")
 '''
 Part 1: Data Load
 '''
@@ -140,8 +143,12 @@ def predict_rocket(input, directory):
       classifier = RidgeClassifierCV(alphas=np.logspace(-3, 3, 10), normalize=False)
       classifier.fit(X_train_transform, y_train)
 
+      filename = 'finalized_model.sav'
+      # pickle.dump(classifier, open(filename, 'wb'))
+      loaded_model = pickle.load(open(filename, 'rb'))
+
       test_data_realtime = rocket.transform(X_test)
-      score = classifier.score(X_test_transform, y_test)
+      score = loaded_model.score(X_test_transform, y_test)
 
       #results.loc[hazard]['ROCKET Train'] =  classifier.score(X_train_transform, y_train)
       #results.loc[hazard]['Rocket Test'] =  classifier.score(X_test_transform, y_test)
@@ -151,8 +158,12 @@ def predict_rocket(input, directory):
       input_transform = rocket.transform(test_data)
 
       #to make predictions, use the following line:
-      input_transform.replace([np.inf, -np.inf], np.nan, inplace=True) # 1st attempt to get rid of the NaN error
-      predictions[hazard] = classifier.predict(input_transform)
+      # input_transform = input_transform.T      input_transform.replace([np.inf, -np.inf, np.nan], 0, inplace=True) # 1st attempt to get rid of the NaN error
+      # input_transform = input_transform.dropna(axis=1)
+      # input_transform = input_transform.T
+
+      print(input_transform.shape)
+      predictions[hazard] = loaded_model.predict(input_transform)
       input_transform = input_transform.reset_index() # 2nd attempt to get rid of the NaN error
   return predictions
 
