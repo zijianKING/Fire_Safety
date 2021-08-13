@@ -112,16 +112,16 @@ void SecDialog::on_pushButton_clicked()
 
 void SecDialog::on_pushButton_2_clicked()
 {
-    //click button模拟了run python file的行动
-    QString path = "../../PredictionModel";
-    QString command("python");
-    QStringList params = QStringList() << "test.py";
-    QProcess *p = new QProcess();
-    p->startDetached(command, params, path);
-    p->waitForFinished();
-    p->close();
+//    //click button模拟了run python file的行动
+//    QString path = "../../PredictionModel";
+//    QString command("C:\\Users\\Cathy\\.virtualenvs\\Fire_Safety\\Scripts\\python");
+//    QStringList params = QStringList() << "Prediction.py";
+//    QProcess *p = new QProcess();
+//    p->startDetached(command, params, path);
+//    p->waitForFinished();
+//    p->close();
 
-    QPixmap pm("../../PredictionModel/test.png");
+    QPixmap pm("../../PredictionModel/predictionResult.png");
     ui->label_4->setPixmap(pm);
     ui->label_4->setScaledContents(true);
     QApplication::restoreOverrideCursor();

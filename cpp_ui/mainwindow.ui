@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>430</y>
+      <y>410</y>
       <width>171</width>
       <height>41</height>
      </rect>
@@ -88,18 +88,20 @@ p, li { white-space: pre-wrap; }
 &lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; color:#ffffff;&quot;&gt;open .prn file for the current experiment&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>490</y>
+      <width>741</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Watch your Qt console. Once done, click this to go to secDialog</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
