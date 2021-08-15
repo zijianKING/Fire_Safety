@@ -1,5 +1,9 @@
 ##### The Following Packages Will be installed:
-##### To intall: run in command line "pip install -r requirements.txt"
-sktime
-delayed
+##### To install: run in command line "pip install -r requirements.txt"
+sktime~=0.7.0
 dataframe-image
+pandas~=1.1.5
+numpy~=1.21.1
+matplotlib~=3.4.2
+DateTime~=4.3
+scikit-learn~=0.24.2
