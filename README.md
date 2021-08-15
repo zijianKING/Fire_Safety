@@ -16,7 +16,7 @@ https://github.com/CathyF9600/Fire_Safety
 4. plot: code that creates chemical ppm plot
 
 ## :round_pushpin:To-do
-See [issues] (https://github.com/CathyF9600/Fire_Safety/issues)
+See [issues](https://github.com/CathyF9600/Fire_Safety/issues)
 
 ## Release Note
 1. download all dependencies in requirements.txt by running `pip install -r requirements.txt` in command line
