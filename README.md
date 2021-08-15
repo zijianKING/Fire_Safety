@@ -16,9 +16,7 @@ https://github.com/CathyF9600/Fire_Safety
 4. plot: code that creates chemical ppm plot
 
 ## :round_pushpin:To-do
-1. second dialog minimize
-2. run python in Qt
-3. model parameter to reduce run time
+See [issues] (https://github.com/CathyF9600/Fire_Safety/issues)
 
 ## Release Note
 1. download all dependencies in requirements.txt by running `pip install -r requirements.txt` in command line
