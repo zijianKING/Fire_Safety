@@ -23,6 +23,7 @@ def draw_rule_based_table(input_file):
 
     # print(result)
     dfi.export(result, 'dataframe.png')
+    print("Rule-based prediction model is done.\n")
 
 
 # def save_df_image(df):
