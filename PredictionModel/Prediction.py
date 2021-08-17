@@ -1,14 +1,13 @@
 import dataframe_image as dfi
 import os
 import pickle
-import sys
 import numpy as np
 import pandas as pd
 from sktime.transformations.panel.rocket import Rocket
 from sklearn.linear_model import RidgeClassifierCV
 from sktime.utils.data_io import load_from_tsfile_to_dataframe
 
-sys.stdout.write("hi\n")
+print("ML prediction model started.\n")
 '''
 Part 1: Data Load
 '''
@@ -63,7 +62,7 @@ df_list = [','.join(ele.split()) for ele in df_strings]
 ts_for_test = ':'.join(map(str, df_list))
 
 path = os.path.dirname(os.path.abspath("__file__"))
-print(path)
+# print(path)
 
 name_of_test = '2020 heating the new PTFE line preliminary'
 
@@ -149,7 +148,7 @@ def predict_rocket(input, directory):
 
 test_data_realtime = "ts_real_time_prediction2020 heating the new PTFE line preliminary.txt"
 directory = os.path.dirname(os.path.abspath("__file__"))
-print(directory)
+# print(directory)
 
 PredictResult = predict_rocket(test_data_realtime, directory)
 
@@ -165,4 +164,4 @@ result = result.replace('0', 'no').replace('1', 'yes')
 
 dfi.export(result, 'predictionResult.png')
 
-print("done")
+print("\nML prediction model is done.\n")
