@@ -45,18 +45,19 @@ void MainWindow::on_pushButton_clicked()
     if ((*p).waitForStarted()){                                 // Check if python is running
         QMessageBox::warning(this,tr("Have started"), tr("Have started"));
         p_stdout = (*p).readAllStandardOutput();                // get output
-        if ((*p).waitForReadyRead(60000)){                                 // 10 sec to check if data is ready
+        if ((*p).waitForReadyRead(600000)){                                 // 10 sec to check if data is ready
             QMessageBox::warning(this,tr("Data ready"), tr("Data ready"));
             p_stdout = (*p).readAllStandardOutput();                // get output
-            if ((*p).waitForBytesWritten(60000)){     // 10 sec to check if data is written
+            qDebug() << "result: " << p_stdout;
+            if ((*p).waitForBytesWritten(600000)){     // 10 sec to check if data is written
                 QMessageBox::warning(this,tr("Data written"), tr("Data written"));
             }
         }
     }
 
-    QMessageBox::warning(this,tr("Have ended"), tr("Have ended"));
+    QMessageBox::warning(this,tr("Have finished"), tr("Have finished"));
     ui->progress->setText(p_stdout); // display output
-    if (!(*p).waitForFinished()){                               // If process crash, stop it
+    if (!(*p).waitForFinished(600000)){                               // If process crash, stop it
         return;
     }
 }
