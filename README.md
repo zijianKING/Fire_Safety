@@ -4,7 +4,7 @@
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/CathyF9600/Fire_Safety.svg)](https://GitHub.com/CathyF9600/Fire_Safety/pulls/)
 
 ## Project Scope
-Summer research project for FASE MIE DORL-Undergrad in University of Toronto <br/>
+Source code for the interface that displays hazard icons and strategies for the fire safety project of FASE MIE DORL-Undergrad<br/>
 
 ## Project Site: 
 https://github.com/CathyF9600/Fire_Safety
