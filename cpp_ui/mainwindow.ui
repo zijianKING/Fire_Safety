@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>330</y>
+      <x>410</x>
+      <y>320</y>
       <width>171</width>
       <height>41</height>
      </rect>
@@ -40,7 +40,7 @@ background:#00204E;
 color: rgb(255, 255, 255);
 font: 12pt &quot;Centaur&quot;;
 }
-QPushButton:hover{
+QPushButton:pressed {
 border: 1px solid #535249;
 border-radius: 10px;
 background: rgb(207, 237, 255);
@@ -64,10 +64,10 @@ font: 12pt &quot;Centaur&quot;;
    <widget class="QTextBrowser" name="textBrowser">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>40</y>
+      <x>260</x>
+      <y>20</y>
       <width>461</width>
-      <height>271</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -94,8 +94,8 @@ p, li { white-space: pre-wrap; }
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>480</y>
+      <x>270</x>
+      <y>680</y>
       <width>461</width>
       <height>41</height>
      </rect>
@@ -108,7 +108,7 @@ background:#00204E;
 color: rgb(255, 255, 255);
 font: 12pt &quot;Centaur&quot;;
 }
-QPushButton:hover{
+QPushButton:pressed{
 border: 1px solid #535249;
 border-radius: 10px;
 background: rgb(207, 237, 255);
@@ -123,10 +123,10 @@ font: 12pt &quot;Centaur&quot;;
    <widget class="QTextBrowser" name="textBrowser_2">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>390</y>
-      <width>461</width>
-      <height>71</height>
+      <x>30</x>
+      <y>380</y>
+      <width>941</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -141,8 +141,21 @@ font: 14pt &quot;Centaur&quot;;</string>
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Centaur'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; color:#00204e;&quot;&gt;Note: this will takes around 1 minute.&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; color:#00204e;&quot;&gt;Note: this usually takes around 1 minute.&lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot; style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; color:#00204e;&quot;&gt;Check console for progress and folder for images pop up.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="progress">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>480</y>
+      <width>941</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

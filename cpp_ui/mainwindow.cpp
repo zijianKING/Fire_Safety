@@ -26,98 +26,95 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    //clicking the button simulates the action of running the python file
+    /* clicking the button simulates the action of running the python file */
     QString path = "../../PredictionModel";
+    // paste your own python interpreter
     QString command("C:/Users/Cathy/.virtualenvs/Fire_Safety/Scripts/python");
     QStringList params = QStringList() << "main.py";
     QProcess *p = new QProcess();
-    p->startDetached(command, params, path);
-//    QString p_stdout = (*p).readAll();
-//    ui->lineEdit->setPlainText(p_stdout); //我想把python print出的text display到Qt上面， 但是不work
-//    ui->lineEdit->setPlainText("at least");
-    p->waitForFinished();
-    p->close();
+    p->setWorkingDirectory(path);
+    p->start(command, params);
+    QString p_stdout;
+//    QByteArray result = p->readAllStandardOutput();
+//    qDebug() << "result: " << result;
+//    ui->progress->setText(result);
+//    p->waitForFinished();
 
-//    QString fileName;
-//    fileName = QFileDialog::getOpenFileName(this,
-//    tr("Open Text file"), "", tr("All Files (*)")); //this:pointer to the object
+//    p->close();
 
-//    if(!fileName.isNull())
-//    {
-//        QFile file(fileName);
-//        if(!file.open(QFile::ReadOnly|QFile::Text))
-//        {
-//            QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(file.errorString()));
-//            return;
-//        }
-//        QTextStream in(&file);
-//        QApplication::setOverrideCursor(Qt::WaitCursor);
-//        secDialog = new SecDialog(this);
-//        secDialog->setModal(false);
-//        secDialog->ui->textBrowser->setPlainText(in.readAll());
-//        secDialog->show();
-//        QApplication::restoreOverrideCursor();
-//        this->hide();
-//    }
-//    else
-//    {
-//        qDebug()<<"quit";
-//    }
+    if ((*p).waitForStarted()){                                 // Check if python is running
+        QMessageBox::warning(this,tr("Have started"), tr("Have started"));
+        p_stdout = (*p).readAllStandardOutput();                // get output
+        if ((*p).waitForReadyRead(60000)){                                 // 10 sec to check if data is ready
+            QMessageBox::warning(this,tr("Data ready"), tr("Data ready"));
+            p_stdout = (*p).readAllStandardOutput();                // get output
+            if ((*p).waitForBytesWritten(60000)){     // 10 sec to check if data is written
+                QMessageBox::warning(this,tr("Data written"), tr("Data written"));
+            }
+        }
+    }
 
-
+    QMessageBox::warning(this,tr("Have ended"), tr("Have ended"));
+    ui->progress->setText(p_stdout); // display output
+    if (!(*p).waitForFinished()){                               // If process crash, stop it
+        return;
+    }
 }
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
+    /* set up the second dialog */
     secDialog = new SecDialog(this);
     secDialog->setModal(false);
     Qt::WindowFlags flags = Qt::Window;
-    secDialog->setWindowFlags(flags);
+    secDialog->setWindowFlags(flags); //adds maximizing button
     secDialog->show();
     QApplication::restoreOverrideCursor();
-
     this->hide();
 
-
+    /* emergency placard #1 */
     QPixmap pm("../../emergency_guides/explosive.png");
     secDialog->ui->placard1->setPixmap(pm);
     secDialog->ui->placard1->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
+    /* emergency placard #2 */
     QPixmap pm4("../../emergency_guides/toxic.jpg");
     secDialog->ui->placard2->setPixmap(pm4);
     secDialog->ui->placard2->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
+    /* load the rule-based prediction that you just ran */
     QPixmap pm2("../../PredictionModel/dataframe.png");
     secDialog->ui->label_5->setPixmap(pm2);
     secDialog->ui->label_5->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
+    /* load the ML prediction that you just ran */
     QPixmap pm3("../../PredictionModel/predictionResult.png");
     secDialog->ui->label_4->setPixmap(pm3);
     secDialog->ui->label_4->setScaledContents(true);
     QApplication::restoreOverrideCursor();
 
-    //guide placeholder
+    /* emergency guide's text file */
     QFile inputFile("../../emergency_guides/guide_137.txt");
     if(!inputFile.open(QFile::ReadOnly|QFile::Text))
     {
-          QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(inputFile.errorString()));
-          return;
+        QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(inputFile.errorString()));
+        return;
     }
     QTextStream in(&inputFile);
     QApplication::setOverrideCursor(Qt::WaitCursor);
     secDialog->ui->textBrowser->setPlainText(in.readAll());
     QApplication::restoreOverrideCursor();
 
-    //chemicals placeholder
+    /* chemicals detected */
     QFile inputFile2("../../data/chemicals.txt");
     if(!inputFile2.open(QFile::ReadOnly|QFile::Text))
     {
-          QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(inputFile2.errorString()));
-          return;
+        QMessageBox::warning(this,tr("Error"),tr("read file error:&1").arg(inputFile2.errorString()));
+        return;
     }
     QTextStream in2(&inputFile2);
     QApplication::setOverrideCursor(Qt::WaitCursor);
