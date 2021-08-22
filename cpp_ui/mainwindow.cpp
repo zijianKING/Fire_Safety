@@ -35,12 +35,7 @@ void MainWindow::on_pushButton_clicked()
     p->setWorkingDirectory(path);
     p->start(command, params);
     QString p_stdout;
-//    QByteArray result = p->readAllStandardOutput();
-//    qDebug() << "result: " << result;
-//    ui->progress->setText(result);
-//    p->waitForFinished();
 
-//    p->close();
 
     if ((*p).waitForStarted()){                                 // Check if python is running
         QMessageBox::warning(this,tr("Have started"), tr("Have started"));
