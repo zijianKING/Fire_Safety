@@ -118,7 +118,7 @@ def predict_rocket(input, directory):
         #     '../ts_NRC_dataset/ts_' + hazard + '_test.txt')
 
         # ROCKET
-        rocket = Rocket(random_state=0)
+        rocket = Rocket(random_state=1)
         rocket.fit(X_train)
         X_train_transform = rocket.transform(X_train)
 
