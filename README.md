@@ -16,11 +16,11 @@ https://github.com/CathyF9600/Fire_Safety
 4. Install the latest QtCreator in your machine in order to run *.pro file in folder `cpp_ui`
 5. To try out the release version, run the *.exe file in folder `Fire_Safety\cpp_ui\build-FireSafety-Desktop_Qt_5_15_2_MinGW_64_bit-Release`. Let us know if anythiny doesn't work for you
 
-## :octocat:Branches
-1. QtCreator_0725: actively developped version
-2. cpp_ui: initial version
-3. :open_file_folder:[openFile](../openFile/README.md): Python version
-4. plot: code that creates chemical ppm plot
+## Branches
+1. main: the final version
+3. cpp_ui: initial version
+4. :open_file_folder:[openFile](../openFile/README.md): Python version
+5. plot: code that creates chemical ppm plot
 
 ## [issues](https://github.com/CathyF9600/Fire_Safety/issues)
 
