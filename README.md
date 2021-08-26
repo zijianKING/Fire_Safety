@@ -22,7 +22,7 @@ https://github.com/CathyF9600/Fire_Safety
 4. :open_file_folder:[openFile](../openFile/README.md): Python version
 5. plot: code that creates chemical ppm plot
 
-## [issues](https://github.com/CathyF9600/Fire_Safety/issues)
+## [Issues](https://github.com/CathyF9600/Fire_Safety/issues)
 
 ## Contact
 email yuchun.feng@mail.utoronto.ca
