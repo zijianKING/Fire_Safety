@@ -19,7 +19,7 @@ https://github.com/CathyF9600/Fire_Safety
 ## Branches
 1. main: the final version
 3. cpp_ui: initial version
-4. :open_file_folder:[openFile](../openFile/README.md): Python version
+4. [openFile](../openFile/README.md): Python version
 5. plot: code that creates chemical ppm plot
 
 ## [Issues](https://github.com/CathyF9600/Fire_Safety/issues)
