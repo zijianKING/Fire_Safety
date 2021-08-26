@@ -9,6 +9,15 @@ Source code for the interface that displays hazard icons and strategies for the 
 ## Project Site: 
 https://github.com/CathyF9600/Fire_Safety
 
+## Libraries and dependencies
+sktime~=0.7.0
+dataframe-image
+pandas~=1.1.5
+numpy~=1.21.1
+matplotlib~=3.4.2
+DateTime~=4.3
+scikit-learn~=0.24.2
+
 ## Release Note
 1. download all dependencies in requirements.txt by running `pip install -r requirements.txt` in command line
 2. sktime currently supports environments with python version 3.6, 3.7, or 3.8
