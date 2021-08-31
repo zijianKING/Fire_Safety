@@ -1,5 +1,0 @@
-##### The Following Packages Will be installed:
-##### To intall: run in command line "pip install -r requirements.txt"
-sktime
-delayed
-dataframe-image
