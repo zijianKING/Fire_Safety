@@ -6,17 +6,19 @@ import pandas as pd
 from sktime.transformations.panel.rocket import Rocket
 from sklearn.linear_model import RidgeClassifierCV
 from sktime.utils.data_io import load_from_tsfile_to_dataframe
+import random
+
+np.random.seed(1)
+random.seed(1)
 
 print("ML prediction model started.\n")
+
 '''
 Part 1: Data Load
 '''
-read_file = pd.read_table(r'2020 heating the new PTFE line preliminary.prn')
-
+read_file = pd.read_table(r'../data/2020 heating the new PTFE line preliminary.prn')
 idx = read_file.loc[read_file['CO2 ppm 191c'] > 400].index[0]
-
 result = read_file.loc[read_file.index[idx:]]
-
 data = result.iloc[:, 2:]
 
 # Convert data & Filtering
@@ -48,11 +50,8 @@ data = data[PredictionSource]
 
 # Remove duplicate
 data = data.loc[:, ~data.columns.duplicated()]
-
-data.to_csv(r'2020 heating the new PTFE line preliminary.csv', index=None)
-
-data = pd.read_csv("2020 heating the new PTFE line preliminary.csv")
-
+data.to_csv(r'../data/2020 heating the new PTFE line preliminary.csv', index=None)
+data = pd.read_csv("../data/2020 heating the new PTFE line preliminary.csv")
 df_strings = data.to_string(header=False,
                             index=False,
                             index_names=False).split('\n')
@@ -60,15 +59,14 @@ df_list = [','.join(ele.split()) for ele in df_strings]
 
 # convert time series to a long string separated by colons, including label
 ts_for_test = ':'.join(map(str, df_list))
-
 path = os.path.dirname(os.path.abspath("__file__"))
 # print(path)
 
-name_of_test = '2020 heating the new PTFE line preliminary'
+name_of_test = "../data/2020 heating the new PTFE line preliminary.txt"
 
 
-def write_to_file(path, data, name_of_test):
-    file_name = path + '\\ts_real_time_prediction' + str(name_of_test) + '.txt'
+def write_to_file(data, name_of_test):
+    file_name = name_of_test
     with open(file_name, 'w') as file:
         file.write("# Data file for the real-time hazard prediction.\n")
 
@@ -87,10 +85,10 @@ def write_to_file(path, data, name_of_test):
             file.write("%s\n" % item)
 
 
-write_to_file(path, ts_for_test, name_of_test)
+write_to_file(ts_for_test, name_of_test)
 
 
-def predict_rocket(input, directory):
+def predict_rocket(input):
     """
     Inputs:
     - test_data_realtime: the test instance, pre-processed to be in time-series format
@@ -98,14 +96,6 @@ def predict_rocket(input, directory):
     Output:
     - prediction: a dictionary of prediction results. Keys are the hazard categories, values are 0 (='No') or 1 (='Yes')
     """
-    # print("reading data...")
-    # directory = os.path.dirname(os.path.abspath("__file__"))
-    # X_train, y_train = load_from_tsfile_to_dataframe(directory + '\\sktime\\datasets\\data\\NRC\\ts_flammability_train.txt')
-    # X_test, y_test = load_from_tsfile_to_dataframe(directory + '\\sktime\\datasets\\data\\NRC\\ts_flammability_test.txt')
-    # directory = os.path.dirname(os.path.abspath("__file__"))
-    # results = pd.DataFrame(columns=['ROCKET Train', 'Rocket Test',
-    #                                 'CIF Train', 'CIF Test',
-    #                                 'TSF Train', 'TSF Test'], index=hazard_categories)
 
     hazard_categories = ['flammability', 'toxicity', 'explosivity', 'water extinguishable', 'corrosive', 'oxidizing']
     predictions = {}
@@ -138,30 +128,19 @@ def predict_rocket(input, directory):
         input_transform = rocket.transform(test_data)
 
         # to make predictions, use the following line:
-        input_transform.replace([np.inf, -np.inf, np.nan], 0, inplace=True)  # 1st attempt to get rid of the NaN error
+        input_transform.replace([np.inf, -np.inf, np.nan], 0, inplace=True)  # get rid of the NaN error
 
         # print(input_transform.shape)
         predictions[hazard] = loaded_model.predict(input_transform)
-        # input_transform = input_transform.reset_index() # 2nd attempt to get rid of the NaN error
     return predictions
 
 
-test_data_realtime = "ts_real_time_prediction2020 heating the new PTFE line preliminary.txt"
-directory = os.path.dirname(os.path.abspath("__file__"))
+test_data_realtime = "../data/ts_real_time_prediction2020 heating the new PTFE line preliminary.txt"
 # print(directory)
 
-PredictResult = predict_rocket(test_data_realtime, directory)
-
-PredictResult
-
+PredictResult = predict_rocket(test_data_realtime)
 result = pd.DataFrame.from_dict(PredictResult)
-
-result
-
 result.index = ['Prediction Result']
-
 result = result.replace('0', 'no').replace('1', 'yes')
-
 dfi.export(result, 'predictionResult.png')
-
 print("\nML prediction model is done.\n")

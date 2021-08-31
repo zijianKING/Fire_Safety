@@ -29,7 +29,7 @@ void MainWindow::on_pushButton_clicked()
     /* clicking the button simulates the action of running the python file */
     QString path = "../../PredictionModel";
     // paste your own python interpreter
-    QString command("C:/Users/Cathy/.virtualenvs/Fire_Safety/Scripts/python");
+    QString command("../../venv/Scripts/python");
     QStringList params = QStringList() << "main.py";
     QProcess *p = new QProcess();
     p->setWorkingDirectory(path);
@@ -37,12 +37,16 @@ void MainWindow::on_pushButton_clicked()
     QString p_stdout;
 
 
-    if ((*p).waitForStarted()){                                 // Check if python is running
+    if ((*p).waitForStarted()){
+        // Check if python is running
         QMessageBox::warning(this,tr("Have started"), tr("Have started"));
-        p_stdout = (*p).readAllStandardOutput();                // get output
-        if ((*p).waitForReadyRead(600000)){                                 // 10 sec to check if data is ready
+        p_stdout = (*p).readAllStandardOutput();
+        // get output
+        if ((*p).waitForReadyRead(600000)){
+            // 10 sec to check if data is ready
             QMessageBox::warning(this,tr("Data ready"), tr("Data ready"));
-            p_stdout = (*p).readAllStandardOutput();                // get output
+            p_stdout = (*p).readAllStandardOutput();
+            // get output
             qDebug() << "result: " << p_stdout;
             if ((*p).waitForBytesWritten(600000)){     // 10 sec to check if data is written
                 QMessageBox::warning(this,tr("Data written"), tr("Data written"));
@@ -52,7 +56,8 @@ void MainWindow::on_pushButton_clicked()
 
     QMessageBox::warning(this,tr("Have finished"), tr("Have finished"));
     ui->progress->setText(p_stdout); // display output
-    if (!(*p).waitForFinished(600000)){                               // If process crash, stop it
+    if (!(*p).waitForFinished(600000)){
+        // If process crash, stop it
         return;
     }
 }

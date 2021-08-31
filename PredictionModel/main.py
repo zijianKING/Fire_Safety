@@ -13,5 +13,5 @@ sys.path[0] = sys.path[0] + "scripts"
 if __name__ == "__main__":
     exec(open(sys.path[0]+'\draw_tables.py').read())
     exec(open('Prediction.py').read())
-# print("hello world")
+    # print("hello world")
 
