@@ -9,7 +9,7 @@ Source code for the interface that displays hazard icons and strategies for the 
 ## Project Site: 
 https://github.com/CathyF9600/Fire_Safety
 
-## Libraries and dependencies
+## Libraries and Dependencies
 sktime~=0.7.0<br/>
 dataframe-image<br/>
 pandas~=1.1.5<br/>
