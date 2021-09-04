@@ -29,6 +29,7 @@ scikit-learn~=0.24.2<br/>
 
 ## Documentation
 [Abstract](https://github.com/CathyF9600/Fire_Safety/blob/main/abstract.pdf)
+[Final Report](https://github.com/CathyF9600/Fire_Safety/blob/main/Fire%20Safety%20Team%20Final%20Report.pdf)
 
 
 ## Branches
