@@ -1,4 +1,4 @@
-### :fire_engine:Project Name: FireSafety
+# :fire_engine:Project Name: FireSafety
 [![GitHub contributors](https://img.shields.io/github/contributors/CathyF9600/Fire_Safety.svg)](https://github.com/CathyF9600/Fire_Safety/graphs/contributors/)
 [![GitHub issues](https://img.shields.io/github/issues/CathyF9600/Fire_Safety.svg)](https://GitHub.com/CathyF9600/Fire_Safety/issues/)
 [![GitHub pull-requests](https://img.shields.io/github/issues-pr/CathyF9600/Fire_Safety.svg)](https://GitHub.com/CathyF9600/Fire_Safety/pulls/)
