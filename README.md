@@ -23,7 +23,7 @@ scikit-learn~=0.24.2<br/>
 2. A virtual environment is preferred. You can, for example, build it on PyCharm with "Add Python Interpreter" -> "Virtualenv Environment".
 3. Please paste the path to your own Python Interpreter (virenv allowed) onto line 32 in `Fire_Safety/cpp_ui/mainwindow.cpp` in order to get C++ run your Python file.
 4. Sktime currently supports environments with python version 3.6, 3.7, or 3.8. If importing sktime cannot be resolved, try compile it locally with the instruction [here](https://www.sktime.org/en/latest/installation.html).
-5. PredictionModel/Prediction.py is written on PyCharm 2021. Running on VS Code might require change in the format of relative path. For example, `data.to_csv(r'2020 heating the new PTFE line preliminary.csv', index=None)` works on PyCharm while `read_file = pd.read_table(r'PredictionModel/2020 heating the new PTFE line preliminary.prn')` works on VS Code
+5. PredictionModel/Prediction.py is written on PyCharm 2021. Running on VS Code might require change in the format of relative path. For example, `r'2020 heating the new PTFE line preliminary.csv'` works on PyCharm while `r'PredictionModel/2020 heating the new PTFE line preliminary.csv'` works on VS Code
 6. Install the latest QtCreator in your machine in order to run *.pro file in folder `cpp_ui`
 7. To try out the release version, run the *.exe file in folder `Fire_Safety\cpp_ui\build-FireSafety-Desktop_Qt_5_15_2_MinGW_64_bit-Release`. Let us know if anythiny doesn't work for you
 
