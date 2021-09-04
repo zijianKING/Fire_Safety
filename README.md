@@ -27,8 +27,9 @@ scikit-learn~=0.24.2<br/>
 6. Install the latest QtCreator in your machine in order to run *.pro file in folder `cpp_ui`
 7. To try out the release version, run the *.exe file in folder `Fire_Safety\cpp_ui\build-FireSafety-Desktop_Qt_5_15_2_MinGW_64_bit-Release`. Let us know if anythiny doesn't work for you
 
-## [Documentation/Final Report](https://github.com/CathyF9600/Fire_Safety/blob/main/Fire%20Safety%20Team%20Final%20Report.pdf)
-please check the above link for a detailed introduction of the project
+## Documentation
+[Abstract](https://github.com/CathyF9600/Fire_Safety/blob/main/abstract.pdf)
+
 
 ## Branches
 1. main: the final version
