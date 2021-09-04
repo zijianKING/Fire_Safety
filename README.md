@@ -28,7 +28,7 @@ scikit-learn~=0.24.2<br/>
 7. To try out the release version, run the *.exe file in folder `Fire_Safety\cpp_ui\build-FireSafety-Desktop_Qt_5_15_2_MinGW_64_bit-Release`. Let us know if anythiny doesn't work for you
 
 ## Documentation
-[Abstract](https://github.com/CathyF9600/Fire_Safety/blob/main/abstract.pdf)
+[Abstract](https://github.com/CathyF9600/Fire_Safety/blob/main/abstract.pdf) </br>
 [Final Report](https://github.com/CathyF9600/Fire_Safety/blob/main/Fire%20Safety%20Team%20Final%20Report.pdf)
 
 
